@@ -7,7 +7,7 @@ from flask import request, jsonify
 # import the table setup
 from models import Game
 from app import app, db
-#--------------------------------------------------------------------------------------------
+#--------------------------------dis------------------------------------------------------------
 ## app routes ##
 
 # BOILERPLATE @app.route()
@@ -26,7 +26,7 @@ def get_games():
 
     # returns the list of entries as json objects
     return jsonify(result)
-
+#--------------------------------------------------------------------------------------------
 
 # >> create game entry
 @app.route("/api/games", methods=["POST"])
@@ -38,13 +38,23 @@ def create_game():
         genre = data.get("genre")
         description = data.get("description")
         category = data.get("category")
-        image_url = data.get("image")
 
+        # create a variable with the data that has been defined
         new_game = Game(title=title, 
                         genre=genre, 
                         description=description, 
-                        category=category, 
-                        image_url=image_url
+                        category=category
                         )
 
+        # staging the additions of data
+        db.session.add(new_game)
+        # committing the additions of data
+        db.session.commit()
+
+        # returns the data as a json object to the client
+        return jsonify({"msg":"Game created successfully"}), 201
+    # error cating
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error":str(e)}), 500
 #--------------------------------------------------------------------------------------------
