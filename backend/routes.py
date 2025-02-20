@@ -7,10 +7,8 @@ from flask import request, jsonify
 # import the table setup
 from models import Game
 from app import app, db
-#--------------------------------dis------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
 ## app routes ##
-
-# BOILERPLATE @app.route()
 
 # >> get games from database
 
@@ -34,6 +32,14 @@ def create_game():
     try:
         data = request.json
         # define the data thats gonna be used
+
+        # some inpuit handling for the fields
+        required_fields = ["title", "genre", "description", "category"]
+        for field in required_fields:
+            if field not in data:
+                return jsonify({"error":f"Missing rerquired data {field}"}), 400
+
+
         title = data.get("title")
         genre = data.get("genre")
         description = data.get("description")
@@ -57,4 +63,51 @@ def create_game():
     except Exception as e:
         db.session.rollback()
         return jsonify({"error":str(e)}), 500
+    
 #--------------------------------------------------------------------------------------------
+
+# >> update an entry
+@app.route("/api/games/<int:id>", methods=["PATCH"])
+def update_game(id):
+    try:
+        game = Game.query.get(id)
+        # if the item is not in the database
+        if game is None:
+            return jsonify({"error":"Game not found"}), 404
+        # else
+
+        data = request.json
+        # get the values to be edited
+        game.title = data.get("title",game.title)
+        game.genre = data.get("genre",game.genre)
+        game.description = data.get("description",game.description)
+        game.category = data.get("category",game.category)
+
+        db.session.commit()
+        return jsonify(game.to_json()), 200
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error":str(e)}), 500
+
+
+#--------------------------------------------------------------------------------------------
+
+# >> delete an entry
+@app.route("/api/games/<int:id>", methods=["DELETE"])
+def delete_game(id):
+    try:
+        game = Game.query.get(id)
+        # if the item is not in the database
+        if game is None:
+            return jsonify({"error":"Game not found"}), 404
+        # else
+        
+        # apply changes to db
+        db.session.delete(game)
+        db.session.commit()
+        return jsonify({"msg":"Game Removed Successfully"}), 200
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error":str(e)}), 500
