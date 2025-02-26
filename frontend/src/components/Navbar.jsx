@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { LuSun } from "react-icons/lu";
 import { IoMoon } from "react-icons/io5";
+import CreateGameModal from "./CreateGameModal";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -48,13 +49,14 @@ const Navbar = () => {
             >
               What you playing?
             </Text>
-            <Button onClick={toggleColorMode}>
+            <Button onClick={toggleColorMode} color={"rgb(220, 70, 97)"}>
               {colorMode === "light" ? (
                 <IoMoon size={20} />
               ) : (
                 <LuSun size={20} />
               )}
             </Button>
+            <CreateGameModal/>
           </Flex>
         </Flex>
       </Box>
