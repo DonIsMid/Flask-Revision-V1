@@ -69,7 +69,7 @@ const CreateGameModal = () => {
               Add
             </Button>
             <Button colorScheme="red" mr={3}>
-              Remove
+              Cancel
             </Button>
           </ModalFooter>
         </ModalContent>
