@@ -26,18 +26,29 @@ const Navbar = () => {
         <Flex h="16" alignItems={"center"} justifyContent={"space-between"}>
           {/*Stuff That goes on the left side of the navbar */}
           <Flex
-            gap={3}
+            gap={1}
             alignItems={"center"}
             justifyContent={"center"}
             dsisplay={{ base: "none", sm: "flex" }}
           >
-            <img
-              src="/logo.png"
-              alt="logo"
-              width={30}
-              height={30}
-              color="pink"
-            ></img>
+            <a href="https://cat-bounce.com/">
+              <img
+                src="/logo.png"
+                alt="logo"
+                width={30}
+                height={30}
+                color="pink"
+              />
+            </a>
+            <Text
+              as={"span"}
+              bgGradient="linear(to-r,rgb(164, 0, 57),rgb(164, 0, 57))"
+              bgClip="text"
+              fontSize="20px"
+              fontWeight="extrabold"
+            >
+              GameNet
+            </Text>
           </Flex>
 
           {/*Stuff That goes on the right side of the navbar */}
@@ -56,7 +67,7 @@ const Navbar = () => {
                 <LuSun size={20} />
               )}
             </Button>
-            <CreateGameModal/>
+            <CreateGameModal />
           </Flex>
         </Flex>
       </Box>
