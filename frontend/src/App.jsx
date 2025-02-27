@@ -19,7 +19,7 @@ function App() {
         >
           <Text
             as={"span"}
-            bgGradient="linear(to-r,rgb(220, 70, 97),rgb(83, 214, 190))"
+            bgGradient="linear(to-r,brand.900,brand.800)"
             bgClip="text"
             fontSize="3xl"
             fontWeight="extrabold"

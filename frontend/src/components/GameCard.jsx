@@ -8,13 +8,18 @@ import {
   Heading,
   IconButton,
   CardBody,
+  useColorMode,
+  useColorModeValue,
+  extendTheme,
+  ChakraProvider,
 } from "@chakra-ui/react";
 import React from "react";
 import { BiTrash } from "react-icons/bi";
+import EditModal from "./EditModal";
 
 const GameCard = ({ game }) => {
   return (
-    <Card>
+    <Card bg={useColorModeValue("brand.800", "brand.700")}>
       <CardHeader>
         <Flex gap={4}>
           <Flex flex={"1"} gap={"4"} alignItems={"center"}>
@@ -28,6 +33,7 @@ const GameCard = ({ game }) => {
           </Flex>
 
           <Flex>
+            <EditModal />
             <IconButton
               variant="ghost"
               colorScheme="red"

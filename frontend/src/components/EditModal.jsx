@@ -1,48 +1,48 @@
-import React from "react";
 import {
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  IconButton,
+  Input,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
-  FormControl,
-  Flex,
-  FormLabel,
-  Input,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Radio,
+  RadioGroup,
   Textarea,
   useDisclosure,
-  RadioGroup,
-  Radio,
-  useColorMode,
-  useColorModeValue,
-  extendTheme,
-  ChakraProvider,
 } from "@chakra-ui/react";
-import { BiAddToQueue } from "react-icons/bi";
+import { BiEditAlt } from "react-icons/bi";
 
-const CreateGameModal = () => {
+function EditModal({ game }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Button onClick={onOpen} bg={useColorModeValue("brand.400", "brand.500")}>
-        <BiAddToQueue color={"rgb(220, 70, 97)"} />
-      </Button>
+      <IconButton
+        onClick={onOpen}
+        variant="ghost"
+        colorScheme="blue"
+        aria-label="See menu"
+        size={"sm"}
+        icon={<BiEditAlt size={20} />}
+      />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent bg={useColorModeValue("brand.600", "brand.500")}>
-          <ModalHeader>New Game 🔥</ModalHeader>
+        <ModalContent>
+          <ModalHeader>Edit your game ✏</ModalHeader>
           <ModalCloseButton />
-
           <ModalBody pb={6}>
             <Flex alignItems={"center"} gap={4}>
               <FormControl>
                 <FormLabel>Full Title</FormLabel>
-                <Input placeholder="Game Name" />
+                <Input placeholder="Game Title" />
               </FormControl>
 
               <FormControl>
@@ -50,36 +50,34 @@ const CreateGameModal = () => {
                 <Input placeholder="Game Genre" />
               </FormControl>
             </Flex>
-
             <FormControl mt={4}>
               <FormLabel>Description</FormLabel>
               <Textarea
                 resize={"none"}
-                overflow={"hidden"}
-                placeholder="What's the game about?"
+                overflowY={"hidden"}
+                placeholder="Gimme the description.
+               "
               />
             </FormControl>
-
             <RadioGroup mt={4}>
               <Flex gap={5}>
-                <Radio value="aaa">AAA</Radio>
-                <Radio value="aa">AA</Radio>
-                <Radio value="indie">Indie</Radio>
+                <Radio value="AAA">AAA</Radio>
+                <Radio value="AA">AA</Radio>
+                <Radio value="Indie">Indie</Radio>
               </Flex>
             </RadioGroup>
           </ModalBody>
+
           <ModalFooter>
             <Button colorScheme="blue" mr={3}>
-              Add
+              Update
             </Button>
-            <Button colorScheme="red" mr={3}>
-              Cancel
-            </Button>
+            <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
     </>
   );
-};
+}
 
-export default CreateGameModal;
+export default EditModal;

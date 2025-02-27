@@ -21,7 +21,7 @@ const Navbar = () => {
         px={4}
         my={2}
         borderRadius={5}
-        bg={useColorModeValue(" #bfebda", "gray.700")}
+        bg={useColorModeValue("brand.800", "brand.700")}
       >
         <Flex h="16" alignItems={"center"} justifyContent={"space-between"}>
           {/*Stuff That goes on the left side of the navbar */}
@@ -42,25 +42,32 @@ const Navbar = () => {
             </a>
             <Text
               as={"span"}
-              bgGradient="linear(to-r,rgb(164, 0, 57),rgb(164, 0, 57))"
+              bg={"brand.900"}
               bgClip="text"
               fontSize="20px"
               fontWeight="extrabold"
             >
-              GameNet
+              GameNet™
             </Text>
           </Flex>
 
           {/*Stuff That goes on the right side of the navbar */}
           <Flex gap={3} alignItems={"center"}>
             <Text
-              fontSize={"lg"}
-              fontWeight={500}
-              display={{ base: "none", md: "block" }}
+              as={"span"}
+              bg={"brand.900"}
+              bgClip="text"
+              fontSize="15px"
+              fontWeight="extrabold"
             >
-              What you playing?
+              What are we playing today?
             </Text>
-            <Button onClick={toggleColorMode} color={"rgb(220, 70, 97)"}>
+            <Button
+              onClick={toggleColorMode}
+              color={"brand.900"}
+              Card
+              bg={useColorModeValue("brand.400", "brand.500")}
+            >
               {colorMode === "light" ? (
                 <IoMoon size={20} />
               ) : (
