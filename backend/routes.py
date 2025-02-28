@@ -44,12 +44,14 @@ def create_game():
         genre = data.get("genre")
         description = data.get("description")
         category = data.get("category")
+        image_url = data.get("image_url")
 
         # create a variable with the data that has been defined
         new_game = Game(title=title, 
                         genre=genre, 
                         description=description, 
-                        category=category
+                        category=category,
+                        image_url=image_url
                         )
 
         # staging the additions of data
@@ -82,6 +84,7 @@ def update_game(id):
         game.genre = data.get("genre",game.genre)
         game.description = data.get("description",game.description)
         game.category = data.get("category",game.category)
+        game.image_url = data.get("image_url",game.image_url)
 
         db.session.commit()
         return jsonify(game.to_json()), 200

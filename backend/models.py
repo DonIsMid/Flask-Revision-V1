@@ -18,6 +18,7 @@ class Game(db.Model):
     genre = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
     category = db.Column(db.String(10), nullable=False)
+    image_url = db.Column(db.String(100), nullable=False)
 
     # this is a function converts our data as a python 
     # dictionary to json form which is readable by the frameworks
@@ -27,7 +28,8 @@ class Game(db.Model):
             "title":self.title,
             "genre":self.genre,
             "description":self.description,
-            "category":self.category
+            "category":self.category,
+            "image_url":self.image_url
         }
 #--------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------

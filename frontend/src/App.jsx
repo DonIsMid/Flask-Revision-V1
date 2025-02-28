@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 
 function App() {
-  const [games, setGames] = React.useState(GAMES);
+  const [games, setGames] = React.useState([]);
   return (
     <Stack minH={"100vh"}>
       <Navbar setGames={setGames} />

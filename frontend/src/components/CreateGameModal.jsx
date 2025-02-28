@@ -67,6 +67,15 @@ const CreateGameModal = () => {
                 <Radio value="indie">Indie</Radio>
               </Flex>
             </RadioGroup>
+
+            <FormControl mt={4}>
+              <FormLabel>Cover Image URL</FormLabel>
+              <Textarea
+                resize={"none"}
+                overflow={"hidden"}
+                placeholder="https://upload.wikimedia.org/wikipedia/commons/d/d5/Nintendo-Switch-Pro-Controller-FL.jpg"
+              />
+            </FormControl>
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3}>
