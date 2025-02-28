@@ -4,9 +4,10 @@ import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 
 function App() {
+  const [games, setGames] = React.useState(GAMES);
   return (
     <Stack minH={"100vh"}>
-      <Navbar />
+      <Navbar setGames={setGames} />
 
       <Container maxW={"1200px"} my={4}>
         <Text
@@ -27,7 +28,7 @@ function App() {
             🎮List of Games🎮
           </Text>
         </Text>
-        <GameGrid />
+        <GameGrid games={games} setGames={setGames} />
       </Container>
     </Stack>
   );
