@@ -20,11 +20,11 @@ import EditModal from "./EditModal";
 
 const GameCard = ({ game }) => {
   return (
-    <Card bg={useColorModeValue("brand.800", "brand.700")} borderRadius={30}>
+    <Card bg={useColorModeValue("brand.800", "brand.700")} borderRadius={10}>
       <CardHeader>
         <Flex gap={4}>
           <Flex flex={"1"} gap={"4"} alignItems={"center"}>
-            <Image maxH={"150px"} src={game.image_url} borderRadius={30}/>
+            <Image maxH={"150px"} src={game.image_url} borderRadius={10}/>
 
             <Box>
               <Heading size="sm">{game.title}</Heading>
