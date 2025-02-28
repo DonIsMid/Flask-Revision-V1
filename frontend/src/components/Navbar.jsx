@@ -46,6 +46,7 @@ const Navbar = () => {
               bgClip="text"
               fontSize="20px"
               fontWeight="extrabold"
+              display={{ base: "none", md: "block" }}
             >
               GameNet™
             </Text>
@@ -59,6 +60,7 @@ const Navbar = () => {
               bgClip="text"
               fontSize="15px"
               fontWeight="extrabold"
+              display={{ base: "none", md: "block" }}
             >
               What are we playing today?
             </Text>
