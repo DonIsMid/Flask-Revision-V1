@@ -6,11 +6,14 @@ import {
   Button,
   useColorMode,
   useColorModeValue,
+  AccordionButton,
+  Center,
 } from "@chakra-ui/react";
 import React from "react";
 import { LuSun } from "react-icons/lu";
-import { IoMoon } from "react-icons/io5";
+import { IoCaretDown, IoMenu, IoMoon } from "react-icons/io5";
 import CreateGameModal from "./CreateGameModal";
+import MenuDrop from "./MenuDrop";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -26,7 +29,7 @@ const Navbar = () => {
         <Flex h="16" alignItems={"center"} justifyContent={"space-between"}>
           {/*Stuff That goes on the left side of the navbar */}
           <Flex
-            gap={1}
+            gap={3}
             alignItems={"center"}
             justifyContent={"center"}
             dsisplay={{ base: "none", sm: "flex" }}
@@ -46,10 +49,10 @@ const Navbar = () => {
               bgClip="text"
               fontSize="20px"
               fontWeight="extrabold"
-              display={{ base: "none", md: "block" }}
             >
               GameNet™
             </Text>
+            <MenuDrop/>
           </Flex>
 
           {/*Stuff That goes on the right side of the navbar */}

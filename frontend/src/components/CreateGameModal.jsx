@@ -34,7 +34,7 @@ const CreateGameModal = () => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent bg={useColorModeValue("brand.600", "brand.500")}>
+        <ModalContent bg={useColorModeValue("brand.600", "brand.500")} color={useColorModeValue("brand.900", "brand.800")}>
           <ModalHeader>New Game 🔥</ModalHeader>
           <ModalCloseButton />
 

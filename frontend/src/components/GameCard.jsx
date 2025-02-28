@@ -20,11 +20,11 @@ import EditModal from "./EditModal";
 
 const GameCard = ({ game }) => {
   return (
-    <Card bg={useColorModeValue("brand.800", "brand.700")}>
+    <Card bg={useColorModeValue("brand.800", "brand.700")} borderRadius={30}>
       <CardHeader>
         <Flex gap={4}>
           <Flex flex={"1"} gap={"4"} alignItems={"center"}>
-            <Image maxH={"100px"} src="https://upload.wikimedia.org/wikipedia/en/4/48/Ultrakill_cover.png" />
+            <Image maxH={"150px"} src={game.image_url} borderRadius={30}/>
 
             <Box>
               <Heading size="sm">{game.title}</Heading>
@@ -45,7 +45,7 @@ const GameCard = ({ game }) => {
           </Flex>
         </Flex>
       </CardHeader>
-      <CardBody>
+      <CardBody bg={useColorModeValue("brand.400", "brand.500")}>
         <Text>{game.description}</Text>
       </CardBody>
     </Card>

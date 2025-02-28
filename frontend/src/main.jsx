@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import * as ReactDOM from "react-dom/client";
-import App from "./App";
+import Games from "./Games";
 
 // extend the theme to include custom colors, fonts, etc
 const colors = {
@@ -20,7 +20,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+      <Games />
     </ChakraProvider>
   </React.StrictMode>
 );

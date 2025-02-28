@@ -3,7 +3,7 @@ import { Button, Container, Stack, Text } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 
-function App() {
+function Games() {
   const [games, setGames] = React.useState([]);
   return (
     <Stack minH={"100vh"}>
@@ -34,4 +34,4 @@ function App() {
   );
 }
 
-export default App;
+export default Games;
