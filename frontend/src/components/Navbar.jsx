@@ -15,7 +15,7 @@ import { IoCaretDown, IoMenu, IoMoon } from "react-icons/io5";
 import CreateGameModal from "./CreateGameModal";
 import MenuDrop from "./MenuDrop";
 
-const Navbar = () => {
+const Navbar = ({ setGames }) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -32,7 +32,7 @@ const Navbar = () => {
             gap={3}
             alignItems={"center"}
             justifyContent={"center"}
-            dsisplay={{ base: "none", sm: "flex" }}
+            display={{ base: "none", sm: "flex" }}
           >
             <a href="https://cat-bounce.com/">
               <img
@@ -52,7 +52,7 @@ const Navbar = () => {
             >
               GameNet™
             </Text>
-            <MenuDrop/>
+            <MenuDrop />
           </Flex>
 
           {/*Stuff That goes on the right side of the navbar */}
@@ -70,7 +70,6 @@ const Navbar = () => {
             <Button
               onClick={toggleColorMode}
               color={"brand.900"}
-              Card
               bg={useColorModeValue("brand.400", "brand.500")}
             >
               {colorMode === "light" ? (
@@ -79,7 +78,7 @@ const Navbar = () => {
                 <LuSun size={20} />
               )}
             </Button>
-            <CreateGameModal />
+            <CreateGameModal setGames={setGames} />
           </Flex>
         </Flex>
       </Box>

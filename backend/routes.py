@@ -60,7 +60,7 @@ def create_game():
         db.session.commit()
 
         # returns the data as a json object to the client
-        return jsonify({"msg":"Game created successfully"}), 201
+        return jsonify(new_game.to_json()), 201
     # error cating
     except Exception as e:
         db.session.rollback()

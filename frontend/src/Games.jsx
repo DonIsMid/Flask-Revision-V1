@@ -3,6 +3,8 @@ import { Button, Container, Stack, Text, useColorModeValue } from "@chakra-ui/re
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 
+export const BASE_URL = "http://127.0.0.1:5000/api";
+
 function Games() {
   const [games, setGames] = React.useState([]);
   return (
