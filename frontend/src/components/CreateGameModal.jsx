@@ -57,20 +57,10 @@ const CreateGameModal = ({ setGames }) => {
         status: "success",
         duration: 5000,
         isClosable: true,
+        colorScheme: "cyan",
       });
       onClose();
-
       setGames((prevGames) => [...prevGames, data]);
-    } catch (error) {
-      toast({
-        title: "An error occurred.",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    } finally {
-      setIsLoading(false);
       setInputs({
         title: "",
         genre: "",
@@ -78,6 +68,17 @@ const CreateGameModal = ({ setGames }) => {
         description: "",
         image_url: "",
       });
+    } catch (error) {
+      toast({
+        title: "An error occurred.",
+        description: error.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        colorScheme: "pink",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -170,7 +171,7 @@ const CreateGameModal = ({ setGames }) => {
                 <Textarea
                   resize={"none"}
                   overflow={"hidden"}
-                  placeholder="https://upload.wikimedia.org/wikipedia/commons/d/d5/Nintendo-Switch-Pro-Controller-FL.jpg"
+                  placeholder="enter your image url"
                   value={inputs.image_url}
                   onChange={(e) =>
                     setInputs({ ...inputs, image_url: e.target.value })

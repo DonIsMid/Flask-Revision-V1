@@ -36,7 +36,7 @@ def create_game():
         # some inpuit handling for the fields
         required_fields = ["title", "genre", "description", "category"]
         for field in required_fields:
-            if field not in data:
+            if field not in data or not data.get(field):
                 return jsonify({"error":f"Missing rerquired data {field}"}), 400
 
 
