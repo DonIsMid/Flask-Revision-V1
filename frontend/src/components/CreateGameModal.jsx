@@ -179,7 +179,12 @@ const CreateGameModal = ({ setGames }) => {
               </FormControl>
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} type="submit" isLoading={isLoading}>
+              <Button
+                colorScheme="blue"
+                mr={3}
+                type="submit"
+                isLoading={isLoading}
+              >
                 Add
               </Button>
               <Button colorScheme="red" mr={3} onClick={onClose}>
